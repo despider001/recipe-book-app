@@ -46,12 +46,18 @@ export class RecipeService {
   }
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipe[index] = newRecipe;
-    this.update();
+    if (index > 2) {
+      this.update();
+    } else {
+      this.emitRecipe(this.recipe);
+    }
+
   }
 
   deleteRecipe(index: number) {
     this.recipe.splice(index, 1);
-    this.update();
+    this.emitRecipe(this.recipe);
+    // this.update();
   }
 
   getRecipe(): Observable<Recipe[]> {

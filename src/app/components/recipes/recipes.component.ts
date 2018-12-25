@@ -14,11 +14,11 @@ export class RecipesComponent implements OnInit {
   constructor(private databaseService: DatabaseService, private manageRecipe: RecipeService) { }
 
   ngOnInit() {
-    this.databaseService.getRecipe().subscribe(
-      (recipes: Recipe[]) => {
-        this.manageRecipe.recipe = recipes;
-      }
-    );
+    // this.databaseService.getRecipe().subscribe(
+    //   (recipes: Recipe[]) => {
+    //     this.manageRecipe.recipe = recipes;
+    //   }
+    // );
   }
 
 }
