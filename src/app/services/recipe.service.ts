@@ -42,16 +42,16 @@ export class RecipeService {
   }
   addRecipe(recipe: Recipe) {
     this.recipe.push(recipe);
-    this.databaseService.saveRecipe(this.recipe);
+    this.update();
   }
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipe[index] = newRecipe;
-    this.databaseService.saveRecipe(this.recipe);
+    this.update();
   }
 
   deleteRecipe(index: number) {
     this.recipe.splice(index, 1);
-    this.databaseService.saveRecipe(this.recipe);
+    this.update();
   }
 
   getRecipe(): Observable<Recipe[]> {
@@ -59,5 +59,10 @@ export class RecipeService {
   }
   emitRecipe(recipes: Recipe[]): void {
     this._recipe$.next(recipes);
+  }
+
+  private update() {
+    this.databaseService.saveRecipe(this.recipe);
+    this.emitRecipe(this.recipe);
   }
 }

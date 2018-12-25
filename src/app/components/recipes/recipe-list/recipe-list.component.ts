@@ -25,7 +25,7 @@ export class RecipeListComponent implements OnInit {
     this.manageRecipe.getRecipe().subscribe(
       data => this.recipes = data
     );
-  } 
+  }
 
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.currentRouteInfo});
