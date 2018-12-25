@@ -1,0 +1,19 @@
+<a [@List] style="cursor: pointer" class="list-group-item clearfix" [routerLink]="[j]" routerLinkActive="active" style="margin-top: 5px;">
+  <!-- <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p class="list-group-item-text">{{ recipe.desc.substring(0, 50) }}</p>
+  </div>
+  <span class="pull-right">
+    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 50px;">
+  </span> -->
+
+  <div class="row">
+    <div class="col-xs-9">
+      <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+      <p class="list-group-item-text">{{ recipe.desc.substring(0, 50) }}</p>     
+    </div>
+    <div class="col-xs-3">
+      <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 100%; /*max-width: 70px;*/">
+    </div>
+  </div>
+</a>

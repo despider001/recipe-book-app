@@ -1,0 +1,11 @@
+.deleteBtn {
+    float:right; 
+    color: inherit;
+    opacity: 0.5;
+    padding: 3px;
+}
+.deleteBtn:hover {
+    font-weight: 700;
+    color: red;
+    opacity: 1;
+}
