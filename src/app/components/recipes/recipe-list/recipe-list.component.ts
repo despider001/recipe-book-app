@@ -22,9 +22,14 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = this.manageRecipe.recipe;
 
   ngOnInit() {
-  }
+    this.manageRecipe.getRecipe().subscribe(
+      data => this.recipes = data
+    );
+  } 
 
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.currentRouteInfo});
   }
+
+
 }

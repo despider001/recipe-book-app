@@ -1,3 +1,4 @@
+import { Subject, Observable } from 'rxjs';
 import { DatabaseService } from './database.service';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
@@ -6,6 +7,8 @@ import { Recipe } from '../models/recipe.model';
   providedIn: 'root'
 })
 export class RecipeService {
+  private _recipe$: Subject<Recipe[]> = new Subject();
+
   constructor(private databaseService: DatabaseService) {}
   recipe: Recipe[] = [
         // tslint:disable-next-line:max-line-length
@@ -49,5 +52,12 @@ export class RecipeService {
   deleteRecipe(index: number) {
     this.recipe.splice(index, 1);
     this.databaseService.saveRecipe(this.recipe);
+  }
+
+  getRecipe(): Observable<Recipe[]> {
+    return this._recipe$.asObservable();
+  }
+  emitRecipe(recipes: Recipe[]): void {
+    this._recipe$.next(recipes);
   }
 }

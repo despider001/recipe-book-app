@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     this.databaseService.getRecipe().subscribe(
       (recipes: Recipe[]) => {
         this.manageRecipe.recipe = recipes;
+        this.manageRecipe.emitRecipe(recipes);
       }
     );
   }
