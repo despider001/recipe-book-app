@@ -17,7 +17,7 @@ export class DatabaseService {
     saveRecipe(recipes: Recipe[]) {
         this.token = this.authService.getToken();
         if (this.token) {
-            this.http.put(`https://ng-recipebook-9de7c.firebaseio.com/recipes.json`, recipes, {
+            this.http.put(`https://firebaseDatabaseName.firebaseio.com/recipes.json`, recipes, {
                 params: new HttpParams().set('auth', this.token)
             })
             .subscribe(
@@ -32,7 +32,7 @@ export class DatabaseService {
     }
 
     getRecipe() {
-        return this.http.get<Recipe[]>(`https://ng-recipebook-9de7c.firebaseio.com/recipes.json`).map(
+        return this.http.get<Recipe[]>(`https://firebaseDatabaseName.firebaseio.com/recipes.json`).map(
             (recipesData) => {
                const recipes: Recipe[] = [];
                for (const item of recipesData) {
